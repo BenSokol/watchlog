@@ -1,0 +1,8 @@
+build/
+dist/
+deb_dist/
+*.egg-info
+watchlog/__pycache__
+./*.tar.gz
+./setup.cfg
+setup.cfg
