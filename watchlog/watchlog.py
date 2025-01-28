@@ -50,9 +50,20 @@ def watchlog(logfile: str, noexec: bool = False) -> ReturnCode:
       return ReturnCode.error
 
   logger_debug("Resolved path: '" + str(logpath) + "'")
-  proc = subprocess.run(["tail", "-f", str(logpath)])
 
-  return proc.returncode
+  proc = None
+  if not noexec:
+    try:
+      proc = subprocess.run(["sudo", "tail", "-f", str(logpath)])
+    except KeyboardInterrupt:
+      # Dont print exception info for KeyboardInterrupt exceptions (CTRL + C)
+      # Keyboard interrputs default to a return value of 130, so return that.
+      sys.exit(130)
+
+  if proc is None:
+    return ReturnCode.success
+  else:
+    return proc.returncode
 
 
 def main() -> typing.NoReturn:

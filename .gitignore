@@ -6,3 +6,5 @@ watchlog/__pycache__
 ./*.tar.gz
 ./setup.cfg
 setup.cfg
+watchlog-*
+.venv/

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
   name='watchlog',
-  version='1.0.0',
+  version='1.0.1',
   author='Ben Sokol',
   author_email='ben@bensokol.com',
   maintainer='Ben Sokol',
